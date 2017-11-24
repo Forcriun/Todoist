@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Clase que permite almacenar las tareas pendientes que tenemos por hacer.
  */
-public class Todoist 
+class Todoist 
 {
     
     // Almacena nuestras tareas
@@ -65,12 +65,52 @@ public class Todoist
     public boolean eliminarTarea(int posicionTarea) 
     {
         boolean valorADevolver = false;
-        if(posicionTarea >= 0 && posicionTarea < tareas.size()){
+        if(esValidoElIndice(posicionTarea)){
             tareas.remove(posicionTarea);
             valorADevolver = true;
         }
         return valorADevolver;
     }
     
+    
+    /**
+     * Metodo que comprueba si una posicion es valida y devuelve true
+     * en caso afirmativo o false en otro caso.
+     */
+    public boolean esValidoElIndice(int indice) 
+    {
+        return (indice >= 0 && indice < tareas.size());
+    }
+    
+    /**
+     * Metodo que devuelve true en caso de que haya tareas por hacer, false
+     * en otro caso
+     */    
+    public boolean hayTareasPendientes(){
+        return (getNumeroDeTareasPendientes() > 0);
+    }
+    
+    /** 
+     * Metodo que imprime todas las tareas existentes, una por linea.
+     * El metodo imprime el numero de posicion de la tarea antes del
+     * nombre de la tarea.
+     */
+    public void mostrarTareasNumeradas()
+    {
+        int numeroPosicion = 1;
+        for (String tarea : tareas){
+            System.out.println(numeroPosicion + ". " + tarea);
+            numeroPosicion = numeroPosicion + 1;
+        }
+    }
+    
+    /**
+     * Muestra solo las tareas en posiciones impares sin numero delante ni nada,
+     * solo la tarea
+     */
+    public void mostrarTareasEnPosicionImpar(){
+    
+    }
+     
 }
 
