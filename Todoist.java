@@ -194,7 +194,25 @@ class Todoist
             numPosicion++;
         }    
     }
-        
+    
+    /**
+     * Devuelve true si hay al menos una tarea que contenga el texto indicado
+     * como parámetro y false en caso contrario. El metodo se debe ejecutar de la
+     * forma mas rapida posible
+     */
+    public boolean hayTareaCoincidente(String textoABuscar)
+    {
+        boolean hayCoincidencias = false;
+        int x = 0;
+        while (!hayCoincidencias && x < tareas.size()){
+            if(tareas.get(x).toLowerCase().contains(textoABuscar.toLowerCase())){
+                hayCoincidencias = true;
+            }
+            x++;
+        }
+        return hayCoincidencias;
+        //return tareas.contains(textoABuscar);        
+    }
 }
 
  
