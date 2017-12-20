@@ -1,9 +1,48 @@
 public class Test
 {
-    /**
-     * Metodo principal
-     */
-    public static void main(String[] args) 
+    public static void test3() 
+    {
+        System.out.println("### Creamos un objeto todoist...");
+        Todoist todoist = new Todoist();
+                
+        System.out.println("\n### Añadimos 4 tareas...");
+        todoist.addTarea("Limpiar la cocina");
+        todoist.addTarea("Sacar la basura");
+        todoist.addTarea("Dormir la siesta");    
+        todoist.addTarea("Ordenar la basura"); 
+        
+        System.out.println("\n### Mostramos todas las tareas...");
+        todoist.mostrarTareasNumeradas();     
+        
+        System.out.println("\n### Elimina la primera con 'basura'...");
+        todoist.eliminaTodasTareasCoincidentes("basura");
+        
+        System.out.println("\n### Mostramos todas las tareas (deberian salir 2 tareas...");
+        todoist.mostrarTareas();            
+    }
+        
+    public static void test2() 
+    {
+        System.out.println("### Creamos un objeto todoist...");
+        Todoist todoist = new Todoist();
+                
+        System.out.println("\n### Añadimos 4 tareas...");
+        todoist.addTarea("Limpiar la cocina");
+        todoist.addTarea("Sacar la basura");
+        todoist.addTarea("Dormir la siesta");    
+        todoist.addTarea("Ordenar la basura"); 
+        
+        System.out.println("\n### Mostramos todas las tareas...");
+        todoist.mostrarTareas();     
+        
+        System.out.println("\n### Elimina la primera con 'basura'...");
+        todoist.eliminaPrimeraTareaCoincidente("basura");
+        
+        System.out.println("\n### Mostramos todas las tareas...");
+        todoist.mostrarTareas();            
+    }  
+    
+    public static void test1() 
     {
         System.out.println("### Creamos un objeto todoist...");
         Todoist todoist = new Todoist();
@@ -62,5 +101,18 @@ public class Test
         System.out.println("\n### Mostramos las primeras 10 tareas...");
         todoist.mostrarNPrimeras(10);
         
+        System.out.println("\n### Miramos si hay una tarea que contenga 'pan' (debería devolver true)...");  
+        System.out.println(todoist.hayTareaCoincidente("pan"));
+        
+        System.out.println("\n### Miramos si hay una tarea que contenga 'siesta' (debería devolver false)...");  
+        System.out.println(todoist.hayTareaCoincidente("siesta"));
+        
+        System.out.println("\n### Eliminamos la primera tarea que contenga 'pan'... (deberían quedar 4 tareas)");  
+        todoist.eliminaPrimeraTareaCoincidente("pan");
+        todoist.mostrarTareasNumeradas();        
     }
 }
+    
+    
+    
+    
